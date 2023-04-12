@@ -37,10 +37,6 @@ public class ArraySortingHashmaps {
     // Creating variable counting correct answers.
     int correctAnswer = 0;
 
-    // Defining sub array of states for the user to guess the corresponding capital.
-    String[] states = statesCapitals[0];
-    // Defining sub array of the capitals to check against user answer.
-    String[] capitals = statesCapitals[1];
     // Creating for-each loop to iterate through state array.
     for (int i = 0; i < 50; i++) {
       System.out.println("\nWhat is the capital of: " + statesCapitals[0][i] + "?\n");
