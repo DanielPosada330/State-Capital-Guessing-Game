@@ -52,11 +52,11 @@ public class ArraySortingHashmaps {
         if (statesCapitals[1][i].equalsIgnoreCase(userInput)) {
           System.out.println("\nCorrect!");
           correctAnswer++;
-          System.out.println("\nCorrects answers thus far: " + correctAnswer + ".");
+          System.out.println("\nCorrect answers thus far: " + correctAnswer + ".");
           break;
         } else {
           System.out.println("\nSorry, that is not the correct capital.");
-          System.out.println("\nCorrects answers thus far: " + correctAnswer + ".");
+          System.out.println("\nCorrect answers thus far: " + correctAnswer + ".");
           break;
         }
       }
