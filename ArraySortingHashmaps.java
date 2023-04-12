@@ -24,16 +24,60 @@ public class ArraySortingHashmaps {
             "Columbus", "Oklahoma City", "Salem", "Harrisburg", "Providence", "Columbia", "Pierre", "Nashville",
             "Austin", "Salt Lake City", "Montpelier", "Richmond", "Olympia", "Charleston", "Madison", "Cheyenne" }
     };
+
+    // Welcoming statement to the user.
+    System.out.println("\nWelcome to the Capital City Guessing Program!");
+    System.out.println(
+        "\nIn this game, each of the states will be shown,\nand you will try to correctly input each of their respective capitals.");
+
+    // initalize Scanner.
+
+    Scanner scanner = new Scanner(System.in);
+
+    // Creating variable counting correct answers.
+    int correctAnswer = 0;
+
+    // Defining sub array of states for the user to guess the corresponding capital.
+    String[] states = statesCapitals[0];
+    // Defining sub array of the capitals to check against user answer.
+    String[] capitals = statesCapitals[1];
+    // Creating for-each loop to iterate through state array.
+    for (int i = 0; i < 50; i++) {
+      System.out.println("\nWhat is the capital of: " + statesCapitals[0][i] + "?\n");
+      // Store the answer the user inputs in a variable.
+      String userInput = scanner.nextLine();
+      // Creating for-each loop to iterate through capital array.
+      for (int j = 0; j < 50; j++) {
+        // Check user answer against element stored in array.
+        if (statesCapitals[1][i].equalsIgnoreCase(userInput)) {
+          System.out.println("\nCorrect!");
+          correctAnswer++;
+          System.out.println("\nCorrects answers thus far: " + correctAnswer + ".");
+          break;
+        } else {
+          System.out.println("\nSorry, that is not the correct capital.");
+          System.out.println("\nCorrects answers thus far: " + correctAnswer + ".");
+          break;
+        }
+      }
+    }
+    // Final statement to user.
+    System.out.println("You correctly guessed: " + correctAnswer + " capitals!");
+    System.out.println(
+        "\nNow we will be moving onto bubble sorting this array.");
+
     // Printing out array and starting bubble sort.
     System.out.println("I am now going to print out the contents of the 2d array.\n");
     // Print the contents of the array.
     for (int i = 0; i < 50; i++) {
       System.out.println("The capital of " + statesCapitals[0][i] + " is " + statesCapitals[1][i] + ".\n");
     }
-    // Next comes the bubble sort of the program.
-    // This will organize the array by capitals alphabetically.
-    // These two for loops will iterate through the elements to compare
-    // alphabetically to each other
+    /*
+     * Next comes the bubble sort of the program.
+     * This will organize the array by capitals alphabetically.
+     * These two for loops will iterate through the elements to compare
+     * alphabetically to each other
+     */
     for (int i = 0; i < statesCapitals[0].length; i++) {
       for (int j = i + 1; j < statesCapitals[0].length; j++) {
         // These two variables help temporarily store the moved variables.
@@ -68,49 +112,6 @@ public class ArraySortingHashmaps {
     for (int i = 0; i < 50; i++) {
       System.out.println("The capital city of " + statesCapitals[1][i] + " is in " + statesCapitals[0][i] + ".\n");
     }
-    // Transitioning to game portion.
-    System.out.println("This concludes the bubble sort portion of the assignment.\n Onto the game!");
-/*
-    // Welcoming statement to the user.
-    System.out.println("\nWelcome to the Capital City Guessing Program!");
-    System.out.println(
-        "\nIn this game, each of the states will be shown,\nand you will try to correctly input each of their respective capitals.");
-
-    // initalize Scanner.
-    */
-    Scanner scanner = new Scanner(System.in);
-
-    // Creating variable counting correct answers.
-    int correctAnswer = 0;
-
-    // Defining sub array of states for the user to guess the corresponding capital.
-    String[] states = statesCapitals[0];
-    // Defining sub array of the capitals to check against user answer.
-    String[] capitals = statesCapitals[1];
-    // Creating for-each loop to iterate through state array.
-    for (String state : states) {
-      System.out.println("\nWhat is the capital of: " + state + "?\n");
-      // Store the answer the user inputs in a variable.
-      String userInput = scanner.nextLine();
-      // Creating for-each loop to iterate through capital array.
-      for (String capital : capitals) {
-        // Check user answer against element stored in array.
-        if (capital.equalsIgnoreCase(userInput)) {
-          System.out.println("\nCorrect!\n");
-          correctAnswer++;
-          System.out.println("Corrects answers thus far: " + correctAnswer + ".");
-          break;
-        } else {
-          System.out.println("\nSorry, that is not the correct capital.");
-          break;
-        }
-      }
-    }
-    // Final statement to user.
-    System.out.println("You correctly guessed: " + correctAnswer + " capitals!");
-    System.out.println(
-        "\nThank you for using the program! Now we will transition to \nhashmaps that are being sorted in treemaps!");
-
     // Starting the second half of the assignment. Hashmaps contain key value pairs
     // of states being keys, and capitals as values.
     HashMap<String, String> capitalCitiesMap = new HashMap<>(statesCapitals[0].length);
@@ -126,9 +127,11 @@ public class ArraySortingHashmaps {
     for (String key : capitalCitiesMap.keySet()) {
       System.out.println("\nThe capital of " + key + " is " + capitalCitiesMap.get(key) + ".");
     }
-    // Next up is to use the TreeMap class to sort the map.
-    // By using a TreeMap class, we are inherently using a binary search tree for
-    // storage.
+    /*
+     * Next up is to use the TreeMap class to sort the map.
+     * By using a TreeMap class, we are inherently using a binary search tree for
+     * storage.
+     */
     TreeMap<String, String> capitalCitiesSorted = new TreeMap<>(capitalCitiesMap);
     for (String key : capitalCitiesSorted.keySet()) {
       // This is showing that the TreeMap used sorted out the original HashMap by
@@ -139,16 +142,23 @@ public class ArraySortingHashmaps {
     System.out
         .println("\nFor this next portion, you will enter a state, \nand the corresponding capital city will appear.");
     System.out.println("\nShould you wish to quit, simply type out \'quit\'.");
-
-    // We must create a while loop, to make sure that the user can keep
-    // looking up cities until they enter 'quit'.
-    // To do this we will create a loop variable to keep the loop going.
+    /*
+     * We must create a while loop, to make sure that the user can keep
+     * looking up cities until they enter 'quit'.
+     * To do this we will create a loop variable to keep the loop going.
+     */
     Boolean loopContinue = false;
+    /*
+     * 
+     * As the prompt did not ask for the user's answer to be non-case sensitive,
+     * it will be left as is and explained to the user.
+     */
+    System.out.println(
+        "\nWhen entering the name of the state, start off with capital case.\ne.g. \'Texas\' or \'Michigan\'.");
     while (!loopContinue) {
-      // New input variable for this portion.
-      //As the prompt did not ask for the user's answer to be non-case sensitive, it will be left as is and explained to the user.
-      System.out.println("\nWhen entering the name of the state, start off with capital case.\ne.g. \'Texas\' or \'Michigan\'.");
+
       System.out.println("\nPlease enter the name of the state: ");
+      // New input variable for this portion.
       String newUserInput = scanner.nextLine();
 
       // Check to see if user input is inside TreeMap.
